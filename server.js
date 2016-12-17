@@ -30,8 +30,8 @@ app.get('/', function(request,response){
   response.sendFile(__dirname + '/index.html');
 });
 
-app.get('/api/usuario/:id/:name', function(req, res){
-	var user = new UsuarioModel({_id : req.params.id, nombre: req.params.name });
+app.get('/api/usuario', function(req, res){
+	var user = new UsuarioModel({_id : req.query.id, nombre: req.query.name });
 	user.save(function(err,doc){
 		res.json(doc);	
 	});
