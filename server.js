@@ -39,11 +39,11 @@ app.get('/api/website',function(req, res){
 		res.json(sites);
 	});
 });
-*/
+
 app.get('/process', function(req, res){
 	res.json(process.env);
 });
-
+*/
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
