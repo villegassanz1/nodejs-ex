@@ -32,13 +32,13 @@ app.get('/api/website/:name', function(req, res){
 		res.json(doc);	
 	});
 });
-
+*/
 app.get('/api/website',function(req, res){
 	WebSiteModel.find(function(err, sites){
 		res.json(sites);
 	});
 });
-*/
+
 app.get('/process', function(req, res){
 	res.json(process.env);
 });
