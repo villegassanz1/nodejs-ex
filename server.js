@@ -4,7 +4,7 @@ var server = require('http').Server(app);
 
 
 var mongoose = require('mongoose');
-
+/*
 mongoose.connect('mongodb://villegas:12345@172.30.202.200:27017/buslocation');  
 
 var WebSiteSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ var WebSiteSchema = new mongoose.Schema({
 }, {collection : "website"});
 
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
-
+*/
 /*
 var developer = [
 	{first: 'Alice', last: 'Wonderland'},
@@ -32,13 +32,13 @@ app.get('/api/website/:name', function(req, res){
 		res.json(doc);	
 	});
 });
-*/
+
 app.get('/api/website',function(req, res){
 	WebSiteModel.find(function(err, sites){
 		res.json(sites);
 	});
 });
-
+*/
 app.get('/process', function(req, res){
 	res.json(process.env);
 });
