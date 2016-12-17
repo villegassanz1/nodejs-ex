@@ -31,7 +31,7 @@ app.get('/', function(request,response){
 });
 
 app.get('/api/usuario/:id', function(req, res){
-	var user = new UsuarioModel({_id : req.params.id, nombre: req.params.nombre });
+	var user = new UsuarioModel({_id : req.params.id, nombre: req.params.name });
 	user.save(function(err,doc){
 		res.json(doc);	
 	});
