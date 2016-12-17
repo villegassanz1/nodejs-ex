@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();  
 var server = require('http').Server(app);
 
-
-var mongoose = require('mongoose');
 /*
+var mongoose = require('mongoose');
+
 mongoose.connect('mongodb: //localhost/test');  
 
 var WebSiteSchema = new mongoose.Schema({
@@ -26,7 +26,7 @@ app.use(express.static('public'));
 app.get('/', function(request,response){
   response.sendFile(__dirname + '/index.html');
 });
-
+/*
 app.get('/api/website/:name', function(req, res){
 	var website = new WebSiteModel({name : req.params.name });
 	website.save(function(err,doc){
@@ -39,7 +39,7 @@ app.get('/api/website',function(req, res){
 		res.json(sites);
 	});
 });
-
+*/
 app.get('/process', function(req, res){
 	res.json(process.env);
 });
