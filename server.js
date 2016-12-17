@@ -39,7 +39,7 @@ app.get('/api/website',function(req, res){
 		res.json(sites);
 	});
 });
-
+*/
 app.get('/process', function(req, res){
 	res.json(process.env);
 });
@@ -48,7 +48,7 @@ var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.listen(port, ip);
-*/
+
 
 server.listen(8080, function() {  
   console.log("Servidor corriendo en http://localhost:8080");
