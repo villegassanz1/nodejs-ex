@@ -24,14 +24,14 @@ app.use(express.static('public'));
 app.get('/', function(request,response){
   response.sendFile(__dirname + '/index.html');
 });
-/*
+
 app.get('/api/website/:name', function(req, res){
 	var website = new WebSiteModel({name : req.params.name });
 	website.save(function(err,doc){
 		res.json(doc);	
 	});
 });
-*/
+
 app.get('/api/website',function(req, res){
 	WebSiteModel.find(function(err, sites){
 		res.json(sites);
