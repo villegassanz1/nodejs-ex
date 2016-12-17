@@ -1,8 +1,8 @@
 var express = require('express');  
 var app = express();  
 var server = require('http').Server(app);
-var mongoose = require('mongoose');
-mongoose.connect('mongodb: //localhost/test');  
+//var mongoose = require('mongoose');
+//mongoose.connect('mongodb: //localhost/test');  
 /*
 var developer = [
 	{first: 'Alice', last: 'Wonderland'},
