@@ -2,10 +2,10 @@ var express = require('express');
 var app = express();  
 var server = require('http').Server(app);
 
-/*
+
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb: //localhost/test');  
+mongoose.connect('mongodb://villegas:12345@172.30.202.200:27017/buslocation');  
 
 var WebSiteSchema = new mongoose.Schema({
 	name: String,
@@ -13,7 +13,6 @@ var WebSiteSchema = new mongoose.Schema({
 }, {collection : "website"});
 
 var WebSiteModel = mongoose.model('WebSite', WebSiteSchema);
-*/
 
 /*
 var developer = [
