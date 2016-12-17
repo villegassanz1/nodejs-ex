@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();  
 var server = require('http').Server(app);
 
-
-var mongoose = require('mongoose');
 /*
+var mongoose = require('mongoose');
+
 mongoose.connect('mongodb://villegas:12345@172.30.202.200:27017/buslocation');  
 
 var WebSiteSchema = new mongoose.Schema({
