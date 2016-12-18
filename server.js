@@ -50,7 +50,7 @@ app.get('/api/usuarios',function(req, res){
 	});
 });
 app.get('/usuario',function(req, res){
-	UsuarioModel.find(function(err, sites){
+	usuarioModel.find(function(err, sites){
 		res.json(sites);
 	});
 });
