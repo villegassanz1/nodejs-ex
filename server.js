@@ -5,7 +5,7 @@ var server = require('http').Server(app);
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://villegas:12345@172.30.202.200:27017/buslocation');  
+mongoose.connect('mongodb://admin:zIfrXnRChzVx@127.7.213.130:27017/buslocation');  
 
 	var UsuarioSchema = new mongoose.Schema({
 		_id: String,
@@ -49,7 +49,11 @@ app.get('/api/usuarios',function(req, res){
 		res.json(sites);
 	});
 });
-
+app.get('/usuario',function(req, res){
+	UsuarioModel.find(function(err, sites){
+		res.json(sites);
+	});
+});
 app.get('/api/website',function(req, res){
 	WebSiteModel.find(function(err, sites){
 		res.json(sites);
