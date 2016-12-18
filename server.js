@@ -49,7 +49,7 @@ app.get('/api/usuarios',function(req, res){
 		res.json(sites);
 	});
 });
-app.get('/usuario',function(req, res){
+app.get('/api/usuario',function(req, res){
 	usuarioModel.find(function(err, sites){
 		res.json(sites);
 	});
