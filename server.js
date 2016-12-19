@@ -44,7 +44,7 @@ app.get('/api/website/:name', function(req, res){
 	});
 });
 
-app.get('/api/usuarios',function(req, res){
+app.get('/api/users',function(req, res){
 	UsuarioModel.find(function(err, sites){
 		res.json(sites);
 	});
