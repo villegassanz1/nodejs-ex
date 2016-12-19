@@ -6,7 +6,7 @@ var server = require('http').Server(app);
 var mongoose = require('mongoose');
 
 //mongoose.connect('mongodb://admin:zIfrXnRChzVx@127.7.213.130:27017/buslocation');  
-mongoose.connect('mongodb://villegas:12345@http://nodejs-server5.44fs.preview.openshiftapps.com/:27017/buslocation');  
+mongoose.connect('mongodb://villegas:12345@172.30.202.200:27017/buslocation');  
 
 	var UsuarioSchema = new mongoose.Schema({
 		_id: String,
