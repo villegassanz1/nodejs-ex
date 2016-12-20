@@ -81,10 +81,8 @@ io.on('connection', function(socket) {
 		});
 	});
 });
-	var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-
+	
 	var AutorSchema = new mongoose.Schema({  
-		autorId  : ObjectId, 
     		nombre: String,
     		biografia: String,
     		fecha_de_nacimiento: Date,
@@ -104,7 +102,7 @@ io.on('connection', function(socket) {
 	var LibroModel = mongoose.model('libro', LibroSchema);
 
 	app.get('/api/author', function(req, res){
-	var obj_autor = new AutorModel({autorId: req.query.id, nombre: req.query.nombre, biografia: req.query.biografia});
+	var obj_autor = new AutorModel({nombre: req.query.nombre, biografia: req.query.biografia});
 	obj_autor.save(function(err,doc){
 			res.json(doc);	
 		});
