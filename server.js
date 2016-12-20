@@ -96,7 +96,7 @@ io.on('connection', function(socket) {
     		paginas: Number,
     		isbn: String,
     		autor: { type: Schema.ObjectId, ref: "autor" } 
-	}, , {collection : "libro"});
+	}, {collection : "libro"});
 
 	var LibroModel = mongoose.model('libro', LibroSchema);
 
