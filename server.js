@@ -82,7 +82,7 @@ io.on('connection', function(socket) {
 	});
 });
 
-	var AutorSchema = new Schema({  
+	var AutorSchema = new mongoose.Schema({  
     		nombre: String,
     		biografia: String,
     		fecha_de_nacimiento: Date,
@@ -91,12 +91,12 @@ io.on('connection', function(socket) {
 
 	var AutorModel = mongoose.model('autor', AutorSchema);
 
-	var LibroSchema = new Schema({  
+	var LibroSchema = new mongoose.Schema({  
    		titulo: String,
     		paginas: Number,
     		isbn: String,
     		autor: { type: Schema.ObjectId, ref: "autor" } 
-	});
+	}, , {collection : "libro"});
 
 	var LibroModel = mongoose.model('libro', LibroSchema);
 
