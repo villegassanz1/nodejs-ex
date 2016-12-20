@@ -120,6 +120,14 @@ io.on('connection', function(socket) {
 		});
 	});
 
+	app.get("/api/bookauthor", function(req, res) {  
+    		LibroModel.find({}, function(err, libros) {
+        	AutorModel.populate(libros, {path: "autor"},function(err, libros){
+            			res.json(libros);
+        		}); 
+    		});	
+	});
+	
 	app.get('/api/books',function(req, res){
 	LibroModel.find(function(err, sites){
 			res.json(sites);
