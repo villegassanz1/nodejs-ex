@@ -135,6 +135,26 @@ io.on('connection', function(socket) {
 		});
 	});
 
+	var UsuarioSchema = new mongoose.Schema({
+		nombre : String,
+		tipo_cuenta : String,
+		created : {type : Date, default: Date.now}
+	}, {collection : "usuario"});
+
+	var UsuarioModel = mongoose.model('usuario', UsuarioSchema);
+
+	app.get('/api/user', function(req, res){
+	var user = new UsuarioModel({nombre: req.query.nombre, tipo_cuenta: req.query.tipo_cuenta});
+	user.save(function(err,doc){
+			res.json(doc);	
+		});
+	});
+
+	app.get('/api/users',function(req, res){
+	UsuarioModel.find(function(err, sites){
+			res.json(sites);
+		});
+	});
 	
 /*
 	var UsuarioSchema = new mongoose.Schema({
