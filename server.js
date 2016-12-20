@@ -81,6 +81,21 @@ io.on('connection', function(socket) {
 		});
 	});
 });
+
+	var UsuarioSchema = new mongoose.Schema({
+		_id: String,
+		nombre : String,
+		tipo_cuenta : String,
+		created : {type : Date, default: Date.now}
+	}, {collection : "usuario"});
+
+	app.get('/api/usuers',function(req, res){
+	UsuarioModel.find(function(err, sites){
+			res.json(sites);
+		});
+	});
+
+
 /*
 	var UsuarioSchema = new mongoose.Schema({
 		_id: String,
