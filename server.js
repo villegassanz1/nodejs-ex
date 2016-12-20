@@ -82,6 +82,52 @@ io.on('connection', function(socket) {
 	});
 });
 
+	var AutorSchema = new Schema({  
+    		nombre: String,
+    		biografia: String,
+    		fecha_de_nacimiento: Date,
+    		nacionalidad: String
+	}, {collection : "autor"});
+
+	var AutorModel = mongoose.model('autor', AutorSchema);
+
+	var LibroSchema = new Schema({  
+   		titulo: String,
+    		paginas: Number,
+    		isbn: String,
+    		autor: { type: Schema.ObjectId, ref: "autor" } 
+	});
+
+	var LibroModel = mongoose.model('libro', LibroSchema);
+
+	app.get('/api/author', function(req, res){
+	var obj_autor = new AutorModel({nombre: req.query.nombre, biografia: req.query.biografia});
+	obj_autor.save(function(err,doc){
+			res.json(doc);	
+		});
+	});
+
+	app.get('/api/authors',function(req, res){
+	AutorModel.find(function(err, sites){
+			res.json(sites);
+		});
+	});
+
+	app.get('/api/book', function(req, res){
+	var book1 = new LibroModel({nombre: req.query.titulo, paginas: req.query.paginas, autor: req.query.id_autor });
+	book1.save(function(err,doc){
+			res.json(doc);	
+		});
+	});
+
+	app.get('/api/books',function(req, res){
+	LibroModel.find(function(err, sites){
+			res.json(sites);
+		});
+	});
+
+	
+/*
 	var UsuarioSchema = new mongoose.Schema({
 		_id: String,
 		nombre : String,
@@ -103,7 +149,14 @@ io.on('connection', function(socket) {
 			res.json(sites);
 		});
 	});
-
+	
+	var RutaSchema = new mongoose.Schema({
+		_id: String,
+		mac : String,
+		nombre_ruta : String,
+		created : {type : Date, default: Date.now}
+	}, {collection : "usuario"});
+*/
 
 /*
 	var UsuarioSchema = new mongoose.Schema({
