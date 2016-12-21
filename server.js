@@ -143,6 +143,15 @@ io.on('connection', function(socket) {
 
 	var UsuarioModel = mongoose.model('usuario', UsuarioSchema);
 
+	var RutaSchema = new mongoose.Schema({
+		mac : String,
+		ruta : String,
+		created : {type : Date, default: Date.now},
+		usuario: { type:  mongoose.Schema.ObjectId, ref: "usuario" } 
+	}, {collection : "ruta"});
+
+	var RutaModel = mongoose.model('ruta', RutaSchema);
+
 	app.get('/api/user', function(req, res){
 	var user = new UsuarioModel({nombre: req.query.nombre, tipo_cuenta: req.query.tipo_cuenta});
 	user.save(function(err,doc){
@@ -155,6 +164,28 @@ io.on('connection', function(socket) {
 			res.json(sites);
 		});
 	});
+
+	app.get('/api/ruta', function(req, res){
+	var ruta1 = new RutaModel({mac: req.query.mac, ruta: req.query.ruta, usuario: req.query.id_usuario });
+	ruta1.save(function(err,doc){
+			res.json(doc);	
+		});
+	});
+
+	app.get('/api/rutas',function(req, res){
+	RutaModel.find(function(err, sites){
+			res.json(sites);
+		});
+	});
+	
+	app.get("/api/rutausuario", function(req, res) {  
+    		UsuarioModel.find({}, function(err, libros) {
+        	RutaModel.populate(libros, {path: "usuario"},function(err, libros){
+            			res.json(libros);
+        		}); 
+    		});	
+	});
+	
 	
 /*
 	var UsuarioSchema = new mongoose.Schema({
