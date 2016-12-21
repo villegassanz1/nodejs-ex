@@ -179,8 +179,8 @@ io.on('connection', function(socket) {
 	});
 	
 	app.get("/api/rutausuario", function(req, res) {  
-    		UsuarioModel.find({}, function(err, libros) {
-        	RutaModel.populate(libros, {path: "usuario"},function(err, libros){
+    		RutaModel.find({}, function(err, libros) {
+        	UsuarioModel.populate(libros, {path: "usuario"},function(err, libros){
             			res.json(libros);
         		}); 
     		});	
